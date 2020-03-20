@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = createReactElements;
 
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 function createReactElements(elements) {
   var rElements = Array.from(elements).reduce(function (elements, element, index) {
     if (element instanceof HTMLElement) {
@@ -17,11 +21,13 @@ function createReactElements(elements) {
       var tagname = element.tagName.toLowerCase();
 
       if (tagname !== 'input') {
-        attributes.children = createElement(element.childNodes);
+        attributes.children = createReactElements(element.childNodes);
       }
 
       delete attributes["class"];
-      var rElement = React.createElement(tagname, attributes); //, attributes.children);
+
+      var rElement = _react["default"].createElement(tagname, attributes); //, attributes.children);
+
 
       elements.push(rElement);
     } else if (element.nodeName === '#text') {

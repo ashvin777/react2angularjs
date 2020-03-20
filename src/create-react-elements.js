@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function createReactElements(elements) {
   let rElements = Array.from(elements).reduce((elements, element, index) => {
 
@@ -12,7 +14,7 @@ export default function createReactElements(elements) {
 
       let tagname = element.tagName.toLowerCase();
       if (tagname !== 'input') {
-        attributes.children = createElement(element.childNodes);
+        attributes.children = createReactElements(element.childNodes);
       }
       delete attributes.class;
 

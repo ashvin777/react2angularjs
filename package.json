@@ -1,6 +1,6 @@
 {
   "name": "react2angularjs",
-  "version": "0.0.0-alpha.4",
+  "version": "0.0.0-alpha.5",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
