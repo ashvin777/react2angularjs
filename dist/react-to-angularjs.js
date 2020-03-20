@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = reactToAngularjs;
 
+var _reactDom = require("react-dom");
+
 var _createReactElements = _interopRequireDefault(require("./create-react-elements"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -41,17 +43,7 @@ function reactToAngularjs(ReactComponent) {
           });
         });
       },
-      render: function (_render) {
-        function render(_x) {
-          return _render.apply(this, arguments);
-        }
-
-        render.toString = function () {
-          return _render.toString();
-        };
-
-        return render;
-      }(function (_ref) {
+      render: function render(_ref) {
         var $transcluded = _ref.$transcluded,
             scope = _ref.scope,
             $compile = _ref.$compile,
@@ -60,8 +52,8 @@ function reactToAngularjs(ReactComponent) {
           props[prop] = scope[prop];
           return props;
         }, {});
-        render(React.createElement(ReactComponent, componentProps, (0, _createReactElements["default"])($transcluded, $compile, scope)), $element);
-      })
+        (0, _reactDom.render)(React.createElement(ReactComponent, componentProps, (0, _createReactElements["default"])($transcluded, $compile, scope)), $element);
+      }
     };
   }];
 }
