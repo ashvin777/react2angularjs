@@ -9,8 +9,8 @@
 import react2angularjs from 'react2angularjs';
 
 angular.module('app', [])
-  .directive('ReactComponent1', react2angularjs(ReactComponent, ['prop1', 'prop2]))
-  .directive('ReactInput', react2angularjs(ReactInput, ['value', 'onChange]))
+  .directive('ReactComponent1', react2angularjs(ReactComponent, ['prop1', 'prop2']))
+  .directive('ReactInput', react2angularjs(ReactInput, ['value', 'onChange']))
 
 ```
 
@@ -18,7 +18,9 @@ angular.module('app', [])
 ## Using in Angularjs Template
 
 ```
-<react-input defaultValue="'123'" value="$ctrl.value" onChange="$ctrl.onChange">
+<react-input default-value="'123'" value="$ctrl.value" on-change="$ctrl.onChange" >
+  ...
+</react-input>
 
 ```
 
@@ -35,12 +37,18 @@ angular.module('app', [])
 
 Using in Angular template
 ```
-
 <react-tooltip placement="'right'" overlay="'tooltip message'">
+  <button ng-click="$ctrl.onSignInClicked()">Sign in</button>
+</react-tooltip>
+```
+
+Event callback
+```
+<react-tooltip placement="'right'" overlay="'tooltip message'" on-close="$ctrl.onClose">
   <button ng-click="$ctrl.onSignInClicked()">Sign in</button>
 </react-tooltip>
 ```
 
 ## Live Demo
 
-[Codesandbox](https://codesandbox.io/s/react-2-angularjs-uttki) - https://codesandbox.io/s/react-2-angularjs-uttki
+[CodeSandbox](https://codesandbox.io/s/react-2-angularjs-uttki) - https://codesandbox.io/s/react-2-angularjs-uttki

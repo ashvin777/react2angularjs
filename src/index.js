@@ -1,3 +1,7 @@
-import reactToAngularjs from "./react-to-angularjs";
+import ReactDirective from './react-directive';
 
-export default reactToAngularjs;
+export default function reactToAngularjs(ReactComponent, propNames = []) {
+  return ['$compile', $compile => {
+    return new ReactDirective(ReactComponent, propNames, $compile);
+  }];
+}

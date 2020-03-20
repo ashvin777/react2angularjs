@@ -1,17 +1,18 @@
 {
   "name": "react2angularjs",
-  "version": "1.0.0-beta",
+  "version": "1.0.0-beta.1",
   "description": "A fully functional way to integrate React components in Angular 1 apps!",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo test",
-    "build": "npx babel src -d dist",
-    "eslint": "npx eslint src/*",
+    "build": "npx babel src --out-file dist/index.js",
+    "eslint": "npx eslint src/index.js",
     "prepublish": "npm run build"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.8.7",
+    "@babel/plugin-transform-modules-umd": "7.9.0",
     "@babel/polyfill": "7.8.7",
     "@babel/preset-env": "7.8.7",
     "@babel/preset-react": "^7.8.3",
