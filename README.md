@@ -18,7 +18,7 @@ angular.module('app', [])
 ## Using in Angularjs Template
 
 ```
-<react-input value="$ctrl.value" onChange="$ctrl.onChange">
+<react-input defaultValue="'123'" value="$ctrl.value" onChange="$ctrl.onChange">
 
 ```
 
@@ -29,14 +29,18 @@ import react2angularjs from 'react2angularjs';
 import Tooltip from 'rc-tooltip';
 
 angular.module('app', [])
-  .directive('ReactTooltip', react2angularjs(Tooltip, ['placement', 'overlay]))
+  .directive('reactTooltip', react2angularjs(Tooltip, ['placement', 'overlay']))
 
 ```
 
 Using in Angular template
 ```
 
-<react-tooltip placement="'right'" overlay="tooltip message">
+<react-tooltip placement="'right'" overlay="'tooltip message'">
   <button ng-click="$ctrl.onSignInClicked()">Sign in</button>
 </react-tooltip>
 ```
+
+## Live Demo
+
+[Codesandbox](https://codesandbox.io/s/react-2-angularjs-uttki) - https://codesandbox.io/s/react-2-angularjs-uttki
