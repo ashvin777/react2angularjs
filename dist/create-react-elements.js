@@ -28,6 +28,10 @@
       return reactElements[0];
     }
 
+    if (reactElements.length === 0) {
+      return null;
+    }
+
     return reactElements;
   }
 

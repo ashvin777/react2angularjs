@@ -43,7 +43,7 @@ export default class ReactDirective {
   render() {
     let props = this.getProps();
     let children = createReactElements(this.$children);
-
+    
     render(
       <this.ReactComponent {...props}>
         {children}
