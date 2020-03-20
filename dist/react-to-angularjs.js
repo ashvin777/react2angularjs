@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = reactToAngularjs;
 
+var _react = _interopRequireDefault(require("react"));
+
 var _reactDom = require("react-dom");
 
 var _createReactElements = _interopRequireDefault(require("./create-react-elements"));
@@ -52,7 +54,7 @@ function reactToAngularjs(ReactComponent) {
           props[prop] = scope[prop];
           return props;
         }, {});
-        (0, _reactDom.render)(React.createElement(ReactComponent, componentProps, (0, _createReactElements["default"])($transcluded, $compile, scope)), $element);
+        (0, _reactDom.render)(_react["default"].createElement(ReactComponent, componentProps, (0, _createReactElements["default"])($transcluded, $compile, scope)), $element);
       }
     };
   }];
