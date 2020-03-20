@@ -1,0 +1,21 @@
+{
+  "name": "react2angularjs",
+  "version": "0.0.0-alpha.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo test",
+    "build": "npx babel src -d dist",
+    "eslint": "npx eslint src/*"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.8.7",
+    "@babel/polyfill": "7.8.7",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "7.8.6"
+  },
+  "author": "",
+  "license": "ISC"
+}
