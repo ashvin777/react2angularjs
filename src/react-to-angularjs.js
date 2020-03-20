@@ -1,3 +1,5 @@
+import { render } from 'react-dom';
+
 import createReactElements from "./create-react-elements";
 
 export default function reactToAngularjs(ReactComponent, props = []) {
