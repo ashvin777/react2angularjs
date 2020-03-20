@@ -1,7 +1,7 @@
 {
   "name": "react2angularjs",
-  "version": "0.0.0-alpha.7",
-  "description": "",
+  "version": "1.0.0-beta",
+  "description": "A fully functional way to integrate React components in Angular 1 apps!",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo test",
@@ -17,6 +17,25 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/register": "7.8.6"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Ashvin Suthar <ashvin.suthar777@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashvin777/react2angularjs.git"
+  },
+  "keywords": [
+    "react2angular",
+    "react",
+    "angular",
+    "react",
+    "to",
+    "angualjs",
+    "ngreact",
+    "angularreact",
+    "reactangular"
+  ],
+  "bugs": {
+    "url": "https://github.com/ashvin777/react2angularjs/issues"
+  },
+  "homepage": "https://github.com/ashvin777/react2angularjs#readme"
 }
