@@ -1,12 +1,13 @@
 {
   "name": "react2angularjs",
-  "version": "0.0.0-alpha.2",
+  "version": "0.0.0-alpha.3",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo test",
     "build": "npx babel src -d dist",
-    "eslint": "npx eslint src/*"
+    "eslint": "npx eslint src/*",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
