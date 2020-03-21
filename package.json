@@ -1,6 +1,6 @@
 {
   "name": "react2angularjs",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "A fully functional way to integrate React components in Angular 1 apps!",
   "main": "dist/index.js",
   "scripts": {

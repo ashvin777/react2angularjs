@@ -9,23 +9,38 @@ export default function createReactElements(elements) {
   }
 
   if (reactElements.length === 0) {
-    return null;
+    return undefined;
   }
 
   return reactElements;
 }
 
+function findReactComponent(el) {
+  let key = Object.keys(el).find(key =>
+    key.startsWith('__reactInternalInstance$')
+  );
+
+  if (el[key]) {
+    let fiberNode = el[key];
+    return fiberNode && fiberNode.return; //fiberNode.return && fiberNode.return.stateNode;
+  }
+
+  return null;
+}
+
 function createElement(elements, element, index) {
-
   if (element instanceof HTMLElement) {
-    let reactElement = createHTMLElement(element, index);
-    elements.push(reactElement);
+    let existing = findReactComponent(element);
 
+    if (!existing) {
+      let reactElement = createHTMLElement(element, index);
+      elements.push(reactElement);
+    }
+    
   } else if (element.nodeName === '#text') {
     let reactElement = createTextElement(element);
-
     //replace new line characters with empty space
-    let textContent = reactElement.replace(/↵/, '');
+    let textContent = reactElement.replace(/âµ/, '');
 
     //Add only if element contains text content
     if (textContent) {

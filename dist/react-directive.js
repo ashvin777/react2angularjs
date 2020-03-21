@@ -73,8 +73,13 @@
       key: "render",
       value: function render() {
         var props = this.getProps();
-        var children = (0, _createReactElements["default"])(this.$children);
-        (0, _reactDom.render)( /*#__PURE__*/_react["default"].createElement(this.ReactComponent, props, children), this.$container);
+
+        if (!this.memoized) {
+          var children = (0, _createReactElements["default"])(this.$children);
+          this.memoized = children;
+        }
+
+        (0, _reactDom.render)( /*#__PURE__*/_react["default"].createElement(this.ReactComponent, props, this.memoized), this.$container);
       }
     }]);
 

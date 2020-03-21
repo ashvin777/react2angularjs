@@ -29,21 +29,38 @@
     }
 
     if (reactElements.length === 0) {
-      return null;
+      return undefined;
     }
 
     return reactElements;
   }
 
+  function findReactComponent(el) {
+    var key = Object.keys(el).find(function (key) {
+      return key.startsWith('__reactInternalInstance$');
+    });
+
+    if (el[key]) {
+      var fiberNode = el[key];
+      return fiberNode && fiberNode["return"]; //fiberNode.return && fiberNode.return.stateNode;
+    }
+
+    return null;
+  }
+
   function createElement(elements, element, index) {
     if (element instanceof HTMLElement) {
-      var reactElement = createHTMLElement(element, index);
-      elements.push(reactElement);
+      var existing = findReactComponent(element);
+
+      if (!existing) {
+        var reactElement = createHTMLElement(element, index);
+        elements.push(reactElement);
+      }
     } else if (element.nodeName === '#text') {
       var _reactElement = createTextElement(element); //replace new line characters with empty space
 
 
-      var textContent = _reactElement.replace(/↵/, ''); //Add only if element contains text content
+      var textContent = _reactElement.replace(/âµ/, ''); //Add only if element contains text content
 
 
       if (textContent) {

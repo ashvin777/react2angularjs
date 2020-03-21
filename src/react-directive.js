@@ -42,12 +42,14 @@ export default class ReactDirective {
 
   render() {
     let props = this.getProps();
-    let children = createReactElements(this.$children);
-    
+
+    if (!this.memoized) {
+      let children = createReactElements(this.$children);
+      this.memoized = children;
+    }
+
     render(
-      <this.ReactComponent {...props}>
-        {children}
-      </this.ReactComponent>,
+      <this.ReactComponent {...props}>{this.memoized}</this.ReactComponent>,
       this.$container
     );
   }
