@@ -37,7 +37,7 @@ export default class ReactDirective {
     this.$compile(element.contents())(scope.$parent);
 
     //re render on scope changes
-    this.elementScope.$watch(this.render.bind(this));
+    this.elementScope.$watchGroup(Object.keys(this.elementScope.$$isolateBindings), this.render.bind(this));
   }
 
   render() {
