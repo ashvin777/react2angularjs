@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>React 2 AngularJS</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div ng-app="myApp" ng-controller="myController as myCtrl">
+      <input-label id="'demo-simple-select-label'">Age</input-label>
+      <react-select
+        label-id="'demo-simple-select-label'"
+        id="'demo-simple-select'"
+        value="myCtrl.age"
+        on-change="myCtrl.handleChange"
+      >
+        <menu-item value="10">Ten</menu-item>
+        <menu-item value="20">Twenty</menu-item>
+        <menu-item value="30">Thirty</menu-item>
+      </react-select>
+
+      <react-button aria-describedby="id" variant="'contained'" color="'primary'" on-click="myCtrl.handleClick">
+        Open Popover
+      </react-utton>
+
+      <react-popover
+        id="id"
+        open="myCtrl.open"
+        anchor-el="myCtrl.anchorEl"
+        on-close="myCtrl.handleClose"
+        anchor-origin="{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }"
+        transform-origin="{
+          vertical: 'top',
+          horizontal: 'center',
+        }">
+        <react-typography>The content of the Popover</react-typography>
+      </react-popover>
+      
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
