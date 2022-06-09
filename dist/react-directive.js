@@ -26,7 +26,7 @@
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
   var ReactDirective = /*#__PURE__*/function () {
     function ReactDirective(ReactComponent, propNames, $compile) {
@@ -50,36 +50,28 @@
       }
     }, {
       key: "getProps",
-      value: function getProps() {
-        var _this = this;
-
+      value: function getProps(elementScope) {
         return this.propNames.reduce(function (props, propName) {
-          props[propName] = _this.elementScope[propName];
+          props[propName] = elementScope[propName];
           return props;
         }, {});
       }
     }, {
       key: "link",
       value: function link(scope, element, attrs, ctrl, transclude) {
-        this.$container = element[0];
-        this.$children = transclude(function () {});
-        this.elementScope = scope;
-        this.render();
+        var $container = element[0];
+        var $children = transclude(function () {});
+        var children = (0, _createReactElements["default"])($children);
+        this.render(scope, $container, children);
         this.$compile(element.contents())(scope.$parent); //re render on scope changes
 
-        this.elementScope.$watchGroup(Object.keys(this.elementScope.$$isolateBindings), this.render.bind(this));
+        scope.$watchGroup(Object.keys(scope.$$isolateBindings), this.render.bind(this, scope, $container, children));
       }
     }, {
       key: "render",
-      value: function render() {
-        var props = this.getProps();
-
-        if (!this.memoized) {
-          var children = (0, _createReactElements["default"])(this.$children);
-          this.memoized = children;
-        }
-
-        (0, _reactDom.render)( /*#__PURE__*/_react["default"].createElement(this.ReactComponent, props, this.memoized), this.$container);
+      value: function render(elementScope, $container, children) {
+        var props = this.getProps(elementScope);
+        (0, _reactDom.render)( /*#__PURE__*/_react["default"].createElement(this.ReactComponent, props, children), $container);
       }
     }]);
 
