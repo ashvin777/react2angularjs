@@ -84,7 +84,7 @@
       attributes.children = createReactElements(childNodes);
     }
 
-    return _react["default"].createElement(tagname, attributes);
+    return /*#__PURE__*/_react["default"].createElement(tagname, attributes);
   }
 
   function createTextElement(element) {

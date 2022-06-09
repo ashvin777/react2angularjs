@@ -30,7 +30,7 @@ export default class ReactDirective {
 
   link(scope, element, attrs, ctrl, transclude) {
     const $container = element[0];
-    const $children = transclude();
+    const $children = transclude(function() {});
     const children = createReactElements($children);
 
     this.render(scope, $container, children);

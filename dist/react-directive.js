@@ -26,7 +26,7 @@
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
   var ReactDirective = /*#__PURE__*/function () {
     function ReactDirective(ReactComponent, propNames, $compile) {
@@ -62,7 +62,7 @@
       key: "link",
       value: function link(scope, element, attrs, ctrl, transclude) {
         this.$container = element[0];
-        this.$children = transclude();
+        this.$children = transclude(function () {});
         this.elementScope = scope;
         this.render();
         this.$compile(element.contents())(scope.$parent); //re render on scope changes
