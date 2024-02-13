@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@material-ui/core": "4.9.7",
-    "angular": "1.6.10",
+    "angular": "1.8.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react2angularjs": "file:../.."
